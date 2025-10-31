@@ -2,17 +2,22 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className='bg-black h-16 flex flex-row items-center justify-between text-white text-2xl font-semibold'>
-        {/* for Icone*/}
-        <div className='p-16 flex items-center justify-center'>
-            TipDipJar
+    <nav className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
+        {/* Actual Nav Bar starts*/}
+        <div className="flex justify-between items-center h-16">
+          {/* Logo  */}
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">💰</span>
+            </div>
+            <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent' >TipDipJar</span>
+          </div>
+          {/* Wallet Connection */}
+          <div > Wallet</div>
         </div>
-
-        {/* for wallet connection */}
-        <div className='p-6 flex items-center justify-center border-2 border-white rounded-lg mr-8 hover:bg-white hover:text-black cursor-pointer'>
-            Connect Wallet
-        </div>
-    </div>
+      </div>
+    </nav>
   )
 }
 
