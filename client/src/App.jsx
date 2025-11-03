@@ -1,4 +1,5 @@
 
+import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Intro from "./components/Intro.jsx";
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
     <div>
       <Header />
       <Intro />
+      <Footer />
     </div>
 
   )

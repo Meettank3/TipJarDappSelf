@@ -51,7 +51,7 @@ const Intro = () => {
             <div className="space-y-6">
                 <TipForm />
             </div>
-            <div className="flex">
+            <div className="flex justify-center">
                 <RecentTips />
             </div>
         </div>

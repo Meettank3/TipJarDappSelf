@@ -9,7 +9,7 @@ const RecentTips = () => {
 
   return (
     <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 shadow-lg h-full p-6 flex flex-col">
-      <h4 className="text-2xl flex items-center gap-2">💝 Recent Tips</h4>
+      <h4 className="text-2xl flex items-center justify-between gap-2">💝 Recent Tips</h4>
       <p className="text-purple-200 text-sm mb-4">{tips.length} tips received</p>
 
       <div className="overflow-y-auto h-[450px] pr-2 space-y-3">
