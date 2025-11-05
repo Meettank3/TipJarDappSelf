@@ -1,21 +1,47 @@
 import React from 'react'
+import MetricCard from './MetricCard'
+import react from '../assets/react.svg'
 
 const Footer = () => {
   return (
-    <div className="bg-gradient-to-br from-purple-700 via-purple-700 to-purple-600 h-10px border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50 p-3" >
-      <div className="text-grey-700 text-size-26px flex justify-center items-center gap-10 p-3 h-40px">
-        <div>
-          Hey
+    <footer className="bg-gray-900 text-white py-10 md:py-12 " >
+      <div className="text-grey-700 text-size-26px flex flex-rows justify-center items-center gap-10 p-3 h-40px">
+        {/* GitHub Cards */}
+        <div >
+          <MetricCard
+            children={
+              <a href="https://github.com/Meettank3">
+                <img src={react} />
+              </a>
+            }
+          />
         </div>
         <div>
-          Hey
+           <MetricCard
+            children={
+              <a href="https://github.com/Meettank3">
+                <img src={react} />
+              </a>
+            }
+          />
         </div>
         <div>
-          Hey
+          <MetricCard
+            children={
+              <a href="https://github.com/Meettank3">
+                <img src={react} />
+              </a>
+            }
+          />
         </div>
       </div>
-
-    </div>
+        <p className='text-gray-400 mb-3 text-size-26px flex flex-rows justify-center items-center gap-10 p-5 h-40px'>
+          Contract 0x12300000000000000000000abc
+        </p>
+          <p className=" text-gray-400 mb-3 flex justify-center items-center" >
+            © TipDipJar. All rights reserved.
+          </p>
+    </footer>
   )
 }
 
