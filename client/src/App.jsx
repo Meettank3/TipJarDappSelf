@@ -13,6 +13,7 @@ export default function App() {
   const [signer,setSigner] = useState (null);
   const [account,setAccount] = useState ("");
   const [network,setNetwork] = useState ("");
+  const [accounts,setAccounts] = useState ([]);
   const [blockchainData, setBlockchainData] = useState(null);
   const [connection, setConnection] = useState(true);
   const loadBlockChainData = async( )=>{
@@ -37,7 +38,8 @@ export default function App() {
       const TipDipJar = new ethers.Contract(Contractaddress,TipJarArtifact.abi,signer);  
       setBlockchainData(TipDipJar);
       
-      const accounts = await provide.listAccounts();
+      const walletAccounts  = await window.ethereum.request({ method: 'eth_requestAccounts' });      
+      setAccount(walletAccounts);      
       //console.log("Contract address:", TipDipJar.target);
     }
   }
@@ -45,11 +47,31 @@ export default function App() {
   useEffect(()=>{
     console.log("UseEffect");
     loadBlockChainData();
+
+      if (window.ethereum) {
+    // If user switches wallet account
+    window.ethereum.on("accountsChanged", (newAccounts) => {
+      console.log("Account switched:", newAccounts);
+      setAccounts(newAccounts);
+    });
+
+    // If user switches network (optional)
+    window.ethereum.on("chainChanged", () => {
+      window.location.reload();
+    });
+  }
+  return () => {
+    if (window.ethereum?.removeListener) {
+      window.ethereum.removeListener("accountsChanged", () => {});
+      window.ethereum.removeListener("chainChanged", () => {});
+    }
+  };
+
   },[])
 
   return (
     <div>
-      <Header />
+      <Header accounts={account} />
       <Intro />
       <Footer />
     </div>

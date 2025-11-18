@@ -1,7 +1,15 @@
 import React from 'react'
+import { ethers } from "ethers";
 import Button from './Button'
 
-const Header = () => {
+const Header = ({ accounts }) => {
+    const getAccounts = () => {
+    console.log(accounts);
+  };
+
+  const shortAddress = (addr) =>
+    addr.slice(0, 6) + "..." + addr.slice(-4);
+
   return (
     /* Actual Nav Bar starts*/
     <nav className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
@@ -17,8 +25,12 @@ const Header = () => {
           {/* Wallet Connection */}
           <div > 
             <Button 
-              text="Connect Wallet"
-              onClick={() => console.log("Connecting Wallet...")}
+              text={
+                accounts && accounts.length > 0
+                  ? shortAddress(accounts[0])
+                  : "Connect Wallet"
+              }
+              onClick={getAccounts}
               logo = "http://www.w3.org/2000/svg"
             />
           </div>
