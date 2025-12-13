@@ -3,7 +3,7 @@ import MetricCard from './MetricCard';
 import TipForm from "./TipForm";
 import RecentTips from "./RecentTips";
 
-const Intro = () => {
+const Intro = ({ accounts, contract }) => {
   return (
 <div>
     {/* Hero Section */}
@@ -49,10 +49,10 @@ const Intro = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
             <div className="space-y-6">
-                <TipForm />
+                <TipForm accounts={accounts} contract={contract} />
             </div>
             <div className="flex justify-center">
-                <RecentTips />
+                <RecentTips contract={contract} />
             </div>
         </div>
     </div>

@@ -1,4 +1,3 @@
-
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Intro from "./components/Intro.jsx";
@@ -16,6 +15,7 @@ export default function App() {
   const [accounts,setAccounts] = useState ([]);
   const [blockchainData, setBlockchainData] = useState(null);
   const [connection, setConnection] = useState(true);
+  const [Contractaddress, setContractaddress] = useState("");
   const loadBlockChainData = async( )=>{
     // Load blockchain data here
     if(window.ethereum == null){
@@ -32,6 +32,8 @@ export default function App() {
       //console.log(network);
       
       const Contractaddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+      setContractaddress(Contractaddress);
+
       const signer = await provide.getSigner();
       setSigner(signer);
 
@@ -52,7 +54,9 @@ export default function App() {
     // If user switches wallet account
     window.ethereum.on("accountsChanged", (newAccounts) => {
       console.log("Account switched:", newAccounts);
-      setAccounts(newAccounts);
+      setAccounts(newAccounts);     
+      window.location.reload();
+
     });
 
     // If user switches network (optional)
@@ -72,8 +76,8 @@ export default function App() {
   return (
     <div>
       <Header accounts={account} />
-      <Intro />
-      <Footer />
+      <Intro accounts={account} contract={blockchainData} />
+      <Footer contractAddress={Contractaddress} />
     </div>
 
   )
