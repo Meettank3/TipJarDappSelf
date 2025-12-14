@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
 import { ethers } from "ethers";
-import TipJarArtifact from "./utils/TipJarABI.json";
+import TipJarArtifact from "../utils/TipJarABI.json";
 
 
 const TipForm = ({ accounts, contract }) => {
