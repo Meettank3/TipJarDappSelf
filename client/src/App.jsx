@@ -31,7 +31,7 @@ export default function App() {
       setConnection(false);
       //console.log(network);
       
-      const Contractaddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+      const Contractaddress = "0x68B694F3bc9e5d7fA46d0482445161e0f1A87C29";
       setContractaddress(Contractaddress);
 
       const signer = await provide.getSigner();
