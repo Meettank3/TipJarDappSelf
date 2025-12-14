@@ -3,7 +3,7 @@ import Header from "./components/Header.jsx";
 import Intro from "./components/Intro.jsx";
 import { useState,useEffect  } from "react";
 import { ethers } from "ethers";
-import TipJarArtifact from "../../artifacts/contracts/TipJar.sol/TipJar.json";
+import TipJarArtifact from "./utils/TipJar.json";
 
 
 
